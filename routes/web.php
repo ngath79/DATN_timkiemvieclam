@@ -1,9 +1,13 @@
 <?php
 
-use App\Http\Controllers\Auth\LoginController as AuthLoginController;
-use App\Http\Controllers\Auth\RegisterController;
+use App\Http\Controllers\Auth\LoginEmployerController;
+use App\Http\Controllers\Auth\LoginUserController;
+use App\Http\Controllers\Auth\RegisterEmployerController;
+use App\Http\Controllers\Auth\RegisterUserController;
+use App\Http\Controllers\EmployerController;
+use App\Http\Controllers\UserController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
-
 
 /*
 |--------------------------------------------------------------------------
@@ -16,45 +20,46 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-use App\Http\Controllers\AuthController;
-use App\Http\Controllers\HomeController;
-use App\Http\Controllers\Auth\LoginController;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/login', [AuthController::class, 'showLoginForm'])->name('login');
-Route::get('/register', [AuthController::class, 'showRegisterForm'])->name('register');
+Route::get('/', function () {
+    return view('home'); // Trỏ tới view 'home.blade.php'
+})->name('home');
+// Route cho đăng ký người dùng
+Route::get('/register/user', [RegisterUserController::class, 'showRegistrationForm'])->name('register.user.form');
+Route::post('/register/user', [RegisterUserController::class, 'register'])->name('register.user');
 
-// Hiển thị form đăng ký
-Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register');
+// Route cho đăng ký nhà tuyển dụng
+Route::get('/register/employer', [RegisterEmployerController::class, 'showRegistrationForm'])->name('register.employer.form');
+Route::post('/register/employer', [RegisterEmployerController::class, 'register'])->name('register.employer');
+// Route cho trang đăng nhập
+Route::get('/login', [LoginUserController::class, 'showLoginForm'])->name('login.form');
+Route::post('/login', [LoginUserController::class, 'login'])->name('login');
 
-// Xử lý dữ liệu đăng ký
-Route::post('/register', [RegisterController::class, 'register']);
+Route::post('logout', function () {
+    Auth::logout();  // Đăng xuất người dùng
+    return redirect()->route('home');  // Chuyển hướng về trang chủ sau khi đăng xuất
+})->name('logout');
 
-// Dashboard cho User
-Route::middleware(['auth', 'role:user'])->group(function () {
-    Route::get('/user/dashboard', function () {
-        return view('dashboards.user'); // Tạo view này
-    })->name('user.dashboard');
-});
 
-// Dashboard cho Employer
-Route::middleware(['auth', 'role:employer'])->group(function () {
-    Route::get('/employer/dashboard', function () {
-        return view('dashboards.employer'); // Tạo view này
-    })->name('employer.dashboard');
-});
+// Hiển thị form đăng nhập cho user
+Route::get('login/user', [LoginUserController::class, 'showLoginForm'])->name('login.user.form');
 
-// Dashboard cho Admin
-Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin/dashboard', function () {
-        return view('dashboards.admin'); // Tạo view này
-    })->name('admin.dashboard');
-});
+// Xử lý đăng nhập cho user
+Route::post('login/user', [LoginUserController::class, 'login'])->name('login.user');
+// Xử lý đăng nhập cho employer
+Route::post('login/employer', [LoginUserController::class, 'login'])->name('login.employer');
 
-Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
-// Xử lý đăng nhập
-Route::post('/login', [LoginController::class, 'login']);
+// Đăng xuất
+Route::post('logout', [LoginUserController::class, 'logout'])->name('logout');
 
-// Xử lý đăng xuất
-Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
+// Định nghĩa route cho dashboard của user
+Route::get('/home_user', [UserController::class, 'index'])->name('home_user');
+// Định nghĩa route cho dashboard của employer
+Route::get('/home_employer', [EmployerController::class, 'index'])->name('home_employer');
+
+// Route để hiển thị form đăng nhập
+Route::get('/login/employer', [LoginEmployerController::class, 'showLoginForm'])->name('login_employer.form');
+
+// Route để xử lý đăng nhập
+Route::post('/login/employer', [LoginEmployerController::class, 'login'])->name('login_employer');
