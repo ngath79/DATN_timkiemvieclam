@@ -33,4 +33,11 @@ class LoginEmployerController extends Controller
             'email' => 'Thông tin đăng nhập không chính xác.',
         ]);
     }
+
+    // Đăng xuất user
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->route('login_employer.form');
+    }
 }

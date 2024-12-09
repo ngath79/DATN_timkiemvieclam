@@ -15,7 +15,7 @@ return [
 
     'defaults' => [
         'guard' => 'web',
-        'passwords' => 'users',
+        'passwords' => 'tk_users',
     ],
 
     /*
@@ -36,15 +36,16 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
-            'provider' => 'users',
-        ],
-        'employer' => [
+    'web' => [
         'driver' => 'session',
-        'provider' => 'employers',
+        'provider' => 'tk_users',
     ],
+
+    'employer' => [
+        'driver' => 'session',
+        'provider' => 'tk_employers',
     ],
+],
 
     /*
     |--------------------------------------------------------------------------
@@ -64,19 +65,19 @@ return [
     */
 
     'providers' => [
-        'users' => [
+        'tk_users' => [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
 
-        // 'users' => [
-        //     'driver' => 'database',
-        //     'table' => 'users',
-        // ],
-        'employers' => [
-        'driver' => 'eloquent',
-        'model' => App\Models\Employer::class, // Thay đổi theo model của bạn
-    ],
+            // 'users' => [
+            //     'driver' => 'database',
+            //     'table' => 'users',
+            // ],
+        'tk_employers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\Employer::class,
+        ],
     ],
 
     /*
@@ -95,7 +96,7 @@ return [
     */
 
     'passwords' => [
-        'users' => [
+        'tk_users' => [
             'provider' => 'users',
             'table' => 'password_resets',
             'expire' => 60,

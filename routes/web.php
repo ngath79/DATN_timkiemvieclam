@@ -4,6 +4,10 @@ use App\Http\Controllers\Auth\LoginEmployerController;
 use App\Http\Controllers\Auth\LoginUserController;
 use App\Http\Controllers\Auth\RegisterEmployerController;
 use App\Http\Controllers\Auth\RegisterUserController;
+use App\Http\Controllers\Employer\AccountController;
+use App\Http\Controllers\Employer\CandidateController;
+use App\Http\Controllers\Employer\CompanyController;
+use App\Http\Controllers\Employer\JobController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -52,6 +56,7 @@ Route::post('login/employer', [LoginUserController::class, 'login'])->name('logi
 
 // Đăng xuất
 Route::post('logout', [LoginUserController::class, 'logout'])->name('logout');
+Route::post('logout_employer', [LoginEmployerController::class, 'logout'])->name('logout_employer');
 
 // Định nghĩa route cho dashboard của user
 Route::get('/home_user', [UserController::class, 'index'])->name('home_user');
@@ -63,3 +68,16 @@ Route::get('/login/employer', [LoginEmployerController::class, 'showLoginForm'])
 
 // Route để xử lý đăng nhập
 Route::post('/login/employer', [LoginEmployerController::class, 'login'])->name('login_employer');
+
+
+Route::prefix('employer')->middleware('auth:employer')->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard_employer');
+    })->name('dashboard_employer');
+
+    Route::get('/manage-jobs', [JobController::class, 'manage'])->name('employer_manage_jobs');
+    Route::get('/manage-candidates', [CandidateController::class, 'index'])->name('employer_manage_candidates');
+    Route::get('/company-info', [CompanyController::class, 'info'])->name('info_company-employer');
+    Route::get('/account-info', [AccountController::class, 'info'])->name('employer_account_info');
+
+});

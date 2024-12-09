@@ -10,6 +10,9 @@ class Employer extends Model implements Authenticatable
 {
     use HasFactory;
 
+    protected $table = 'tk_employers';
+
+
     // Các thuộc tính của model
     protected $fillable = [
         'name', 'email', 'password', // các trường khác nếu cần
