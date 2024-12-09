@@ -42,16 +42,16 @@
                     <a class="nav-link active" href="{{ route('dashboard_employer') }}">Dashboard</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('employer.manage.jobs') }}">Quản lý đăng tuyển</a>
+                    <a class="nav-link" href="{{ route('employer_manage_jobs') }}">Quản lý đăng tuyển</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('employer.manage.candidates') }}">Quản lý ứng viên</a>
+                    <a class="nav-link" href="{{ route('employer_manage_candidates') }}">Quản lý ứng viên</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('employer.company.info') }}">Thông tin công ty</a>
+                    <a class="nav-link" href="{{ route('info_company-employer') }}">Thông tin công ty</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('employer.account.info') }}">Thông tin tài khoản</a>
+                    <a class="nav-link" href="{{ route('employer_account_info') }}">Thông tin tài khoản</a>
                 </li>
             </ul>
         </div>

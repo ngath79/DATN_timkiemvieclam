@@ -45,6 +45,11 @@ return [
         'driver' => 'session',
         'provider' => 'tk_employers',
     ],
+
+    'info_employer' => [
+        'driver' => 'session',
+        'provider' => 'info_employer',
+    ],
 ],
 
     /*
@@ -77,6 +82,11 @@ return [
         'tk_employers' => [
             'driver' => 'eloquent',
             'model' => App\Models\Employer::class,
+        ],
+
+        'info_employers' => [
+            'driver' => 'eloquent',
+            'model' => App\Models\InfoEmployer::class,
         ],
     ],
 
