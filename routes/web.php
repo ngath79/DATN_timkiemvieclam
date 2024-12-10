@@ -7,7 +7,9 @@ use App\Http\Controllers\Auth\RegisterUserController;
 use App\Http\Controllers\Employer\AccountController;
 use App\Http\Controllers\Employer\CandidateController;
 use App\Http\Controllers\Employer\CompanyController;
+use App\Http\Controllers\Employer\DashboardEmployerController;
 use App\Http\Controllers\Employer\JobController;
+use App\Http\Controllers\Employer\RecruitmentManagementController;
 use App\Http\Controllers\EmployerController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Auth;
@@ -81,3 +83,28 @@ Route::prefix('employer')->middleware('auth:employer')->group(function () {
     Route::get('/account-info', [AccountController::class, 'info'])->name('employer_account_info');
 
 });
+    Route::get('/employer/dashboard', [DashboardEmployerController::class, 'index'])->name('dashboard_employer');
+
+
+    Route::get('/employer/company/edit', [App\Http\Controllers\Employer\CompanyController::class, 'edit'])->name('edit_company_employer');
+    Route::post('/employer/company/update', [App\Http\Controllers\Employer\CompanyController::class, 'update'])->name('update_company_employer');
+
+    Route::get('/employer/job/manage', [JobController::class, 'manage'])->name('job_manager_employer');
+
+    // Hiển thị form tạo bài đăng tuyển
+Route::get('/employer/job/create', [JobController::class, 'create'])->name('create_job_post');
+
+// Lưu bài đăng tuyển mới
+Route::post('/employer/job/store', [JobController::class, 'store'])->name('job.store');
+
+    Route::get('/employer/recruitment-management', [RecruitmentManagementController::class, 'index'])->name('recruitment_management_employer');
+
+
+    Route::get('/employer/recruitment-management', [RecruitmentManagementController::class, 'index'])->name('recruitment_management');
+    Route::get('/employer/recruitment/create', [RecruitmentManagementController::class, 'create'])->name('create_job_post');
+    Route::post('/employer/recruitment', [RecruitmentManagementController::class, 'store'])->name('store_job_post');
+    Route::get('/employer/recruitment/{id}/edit', [RecruitmentManagementController::class, 'edit'])->name('edit_job_post');
+    Route::put('/employer/recruitment/{id}', [RecruitmentManagementController::class, 'update'])->name('update_job_post');
+    Route::delete('/employer/recruitment/{id}', [RecruitmentManagementController::class, 'destroy'])->name('delete_job_post');
+
+    

@@ -48,7 +48,7 @@ return [
 
     'info_employer' => [
         'driver' => 'session',
-        'provider' => 'info_employer',
+        'provider' => 'info_employers',
     ],
 ],
 

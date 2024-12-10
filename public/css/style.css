@@ -22,3 +22,26 @@ body {
     color: white;
 }
 
+.status {
+    color: rgb(80, 194, 14);
+}
+
+.edit_info_company {
+    background-color: #4CAF50; /* Màu nền */
+    border: none; /* Xóa viền */
+    color: white; /* Màu chữ */
+    padding: 10px 20px; /* Khoảng cách trong nút */
+    text-align: center; /* Canh giữa chữ */
+    text-decoration: none; /* Bỏ gạch chân */
+    display: inline-block; /* Hiển thị dạng khối inline */
+    font-size: 16px; /* Kích thước chữ */
+    margin: 4px 2px; /* Khoảng cách ngoài */
+    cursor: pointer; /* Hiển thị con trỏ khi hover */
+    border-radius: 5px; /* Bo góc */
+    transition: background-color 0.3s, transform 0.2s; /* Hiệu ứng chuyển động */
+}
+
+.edit_info_company:hover {
+    background-color: #45a049; /* Màu nền khi hover */
+    transform: scale(1.1); /* Tăng kích thước nhẹ */
+}
