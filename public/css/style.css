@@ -1,6 +1,115 @@
 /* public/css/custom.css */
 body {
-    background-color: #f8f9fa;
+    background-color: #dedfe0;
+}
+
+/*css Header*/
+.header_dark {
+    background-color: #1898e2;
+}
+
+.logo {
+    font-size: 25px;
+    color: white;
+    text-decoration: none;
+    white-space: nowrap;
+    font-weight: 400;
+    padding-bottom: 9px;
+}
+/* css home.balde.php */
+.home_box {
+    background-color: #f8f9fa; /* Màu nền trắng nhạt xám */
+    border-radius: 8px; /* Bo góc mềm mại */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Khung nổi với bóng mờ */
+    padding: 20px; /* Khoảng cách bên trong khung */
+    margin: 20px; /* Khoảng cách bên ngoài khung */
+    border: 1px solid #ddd; /* Đường viền mỏng màu xám nhạt */
+}
+
+.elevated-box:hover {
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15); /* Bóng mờ đậm hơn khi hover */
+    transform: translateY(-2px); /* Khung nổi lên một chút */
+    transition: 0.3s ease; /* Tạo hiệu ứng chuyển đổi mượt mà */
+}
+
+.home_apply {
+    list-style-type: none;
+}
+
+.home_apply_item {
+    padding-bottom: 40px;
+    padding-left: 110px;
+}
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+}
+.search-input {
+    width: 100%;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.search-input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+.search-button {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #007bff;
+    border: none;
+    padding: 7px 12px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button i {
+    color: white;
+}
+
+.search-button:hover {
+    background-color: #0056b3;
+}
+.employer_home {
+    padding-top: 35px;
+}
+
+.img_employer_list {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex; /* Hiển thị danh sách theo hàng ngang */
+}
+
+.img_employer_home {
+    width: 130px;
+    height: 130px;
+    object-fit: cover;
+    margin-left: 10px;
+}
+.img_employer_item {
+    margin: 0;
+    padding: 10px 20px;
+}
+/* css footer */
+.footer {
+    background-color: #07324b;
 }
 
 .nav {
@@ -17,10 +126,7 @@ body {
     padding: 0.5rem;
 }
 
-.footer {
-    background-color: #343a40;
-    color: white;
-}
+
 
 .status {
     color: rgb(80, 194, 14);
@@ -45,3 +151,5 @@ body {
     background-color: #45a049; /* Màu nền khi hover */
     transform: scale(1.1); /* Tăng kích thước nhẹ */
 }
+
+

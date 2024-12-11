@@ -53,4 +53,6 @@ class CompanyController extends Controller
 
         return redirect()->route('info_company-employer')->with('success', 'Cập nhật thông tin công ty thành công!');
     }
+
+    
 }

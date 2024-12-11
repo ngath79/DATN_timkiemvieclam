@@ -97,14 +97,16 @@ Route::get('/employer/job/create', [JobController::class, 'create'])->name('crea
 // Lưu bài đăng tuyển mới
 Route::post('/employer/job/store', [JobController::class, 'store'])->name('job.store');
 
-    Route::get('/employer/recruitment-management', [RecruitmentManagementController::class, 'index'])->name('recruitment_management_employer');
+Route::get('/employer/recruitment-management', [RecruitmentManagementController::class, 'index'])->name('recruitment_management_employer');
 
 
-    Route::get('/employer/recruitment-management', [RecruitmentManagementController::class, 'index'])->name('recruitment_management');
-    Route::get('/employer/recruitment/create', [RecruitmentManagementController::class, 'create'])->name('create_job_post');
-    Route::post('/employer/recruitment', [RecruitmentManagementController::class, 'store'])->name('store_job_post');
-    Route::get('/employer/recruitment/{id}/edit', [RecruitmentManagementController::class, 'edit'])->name('edit_job_post');
-    Route::put('/employer/recruitment/{id}', [RecruitmentManagementController::class, 'update'])->name('update_job_post');
-    Route::delete('/employer/recruitment/{id}', [RecruitmentManagementController::class, 'destroy'])->name('delete_job_post');
+// Route hiển thị form chỉnh sửa bài đăng
+Route::get('/job/{id}/edit', [JobController::class, 'edit'])->name('edit_job_employer');
 
+// Route xử lý cập nhật bài đăng
+Route::put('/job/{id}', [JobController::class, 'update'])->name('update_job_employer');
+
+Route::delete('/job/{id}', [JobController::class, 'destroy'])->name('delete_job_employer'); // Xử lý xóa công việc
+    
+Route::get('/job/{id}', [JobController::class, 'show'])->name('job_detail_employer');
     

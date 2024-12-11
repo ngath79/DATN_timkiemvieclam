@@ -6,16 +6,51 @@
 <div class="container mt-5">
     <div class="row justify-content-center">
         <div class="col-md-8 text-center">
-            <h2>Chào Mừng Bạn Đến Với Trang Web Của Chúng Tôi!</h2>
-            <p>Đây là trang chủ của hệ thống tìm kiếm việc làm. Bạn có thể đăng ký hoặc đăng nhập để sử dụng các tính năng của hệ thống.</p>
+            <p>Đón lấy thành công với</p>
+            <h2>99++++ cơ hội nghề nghiệp!</h2>
             
             @guest
-                <a href="{{ route('login.form') }}" class="btn btn-primary m-2">Đăng Nhập</a>
-                <a href="{{ route('register.user') }}" class="btn btn-success m-2">Đăng Ký Người Dùng</a>
-                <a href="{{ route('register.employer') }}" class="btn btn-warning m-2">Đăng Ký Nhà Tuyển Dụng</a> <!-- Nút đăng ký nhà tuyển dụng -->
+            <ul class="home_apply">
+                <li class="home_apply_item">
+                    <div class=" search-container search-box ">
+                        <input type="text" class="search-input" placeholder="Tìm kiếm...">
+                        <a href="{{ route('login.form') }}" class="btn btn-primary m-2">Ứng tuyển</a>
+                    </div>    
+                </li>
+                <li>
+                    <span class="home_box ">
+                        <span>Tìm kiếm công việc phù hợp để ứng tuyển ngay!</span>
+                        <a href="{{ route('register.user') }}" class="btn btn-success m-2">Tìm việc ngay</a>
+                    </span>    
+                </li>
+            </ul>  
+    
             @else
                 <p>Chào mừng, {{ Auth::user()->name }}! Bạn đã đăng nhập.</p>
             @endguest
+        </div>
+        <div class="col-md-8 text-center">
+            <h2 class="employer_home">Nhà tuyển dụng hàng đầu</h2>
+            <ul class="img_employer_list">
+                <li class="img_employer_item">
+                <img class="img_employer_home" src="{{asset('img/Navi.jpg')}}" alt="">
+                </li>
+                <li class="img_employer_item">
+                <img class="img_employer_home" src="{{asset('img/Navi.jpg')}}" alt="">
+                </li>
+                <li class="img_employer_item">
+                <img class="img_employer_home" src="{{asset('img/Navi.jpg')}}" alt="">
+                </li>
+                <li class="img_employer_item">
+                <img class="img_employer_home" src="{{asset('img/Navi.jpg')}}" alt="">
+                </li>
+                <li class="img_employer_item">
+                <img class="img_employer_home" src="{{asset('img/Navi.jpg')}}" alt="">
+                </li>
+            </ul>
+
+
+            
         </div>
     </div>
 </div>

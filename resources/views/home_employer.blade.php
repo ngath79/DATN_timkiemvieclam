@@ -10,7 +10,7 @@
 </head>
 <body>
     <!-- Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark header_dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="#">Trang Chủ Nhà Tuyển Dụng</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -64,8 +64,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-dark text-center text-white py-3 mt-5">
-        <p class="mb-0">© 2024 Your Company. All Rights Reserved.</p>
+    <footer class="footer text-center text-white py-3 mt-5">
+        <p class="mb-0">© 2024 JobFinder Company. Đồ án tốt nghiệp 2024.</p>
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>

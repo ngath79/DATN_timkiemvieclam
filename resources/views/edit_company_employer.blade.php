@@ -44,6 +44,7 @@
         </div>
         @endforeach
         <button type="submit" class="btn btn-primary">Cập nhật</button>
+        <a href="{{ route('info_company-employer') }}" class="btn btn-secondary">Quay lại</a>
     </form>
 </div>
 @endsection

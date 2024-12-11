@@ -23,13 +23,13 @@
                 @foreach ($job_posts as $post)
                     <tr>
                         <td>{{ $loop->iteration }}</td>
-                        <td>{{ $post->position }}</td>
+                        <td><a href="{{ route('job_detail_employer', $post->id) }}" class="text-decoration-none">{{ $post->position }}</a></td>
                         <td>{{ $post->quantity }}</td>
                         <td>{{ $post->deadline }}</td>
                         <td>{{ $post->status }}</td>
                         <td>
-                            <a href="{{ route('job.edit', $post->id) }}" class="btn btn-sm btn-warning">Sửa</a>
-                            <form action="{{ route('job.delete', $post->id) }}" method="POST" style="display:inline-block;">
+                            <a href="{{ route('edit_job_employer', $post->id) }}" class="btn btn-sm btn-warning">Sửa</a>
+                            <form action="{{ route('delete_job_employer', $post->id) }}" method="POST" style="display:inline-block;">
                                 @csrf
                                 @method('DELETE')
                                 <button type="submit" class="btn btn-sm btn-danger">Xóa</button>
